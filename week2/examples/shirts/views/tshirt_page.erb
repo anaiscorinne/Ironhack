@@ -1,0 +1,11 @@
+<h1> <%= @tshirt_type %> </h1>
+
+<p>Would you like to add this shirt to your cart?</p>
+
+<form action="/add_to_cart" method="post">
+	<!-- <input type="hidden" name="shirt" value="<%= (@)tshirt_id %>"> you can also do this ^ -->
+		<button type="submit" name="tshirt_id" value="<%= @tshirt_id %>">
+			Add to cart
+		</button>
+</form>
+	

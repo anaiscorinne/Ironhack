@@ -1,0 +1,103 @@
+.my-box {
+	padding: 10px 5px;
+	margin: 5px 10px;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+img .floatBox {
+    float: left;
+}
+
+.headContainer:hover {
+    background-color: #FFFFFF;
+    box-shadow: 10px 5px 5px #888888;
+}
+
+body {
+	background-color: #d8bfd8;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+header {
+	font-family: Ultra, serif;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+.articleContainer {
+	background-color: #FFFFFF;
+	width: 90%;
+	margin: auto;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+.postAuthor {
+	font-size: 20px;
+}
+
+article {
+	padding: 30px;
+	font-size: 12px;
+	width: 80%;
+	text-align: center;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+article h1 {
+	font-family: Ubuntu, sans-serif;
+	font-size: 40px;
+	background-color: #f08080;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+article table, p, li, ol {
+	font-family: Ubuntu, sans-serif;
+	font-size: 14px;
+	box-shadow: 10px 5px 5px #888888;
+}
+
+.niceParagraph, span {
+	background-color: #fff0f5;
+	font-family: Ubuntu, sans-serif;
+}
+
+#finalParagraph {
+	background-color: #f08080;
+	font-family: Ubuntu, sans-serif;
+}
+
+
+footer {
+	background-color: #444444;
+	padding: 30px 10px;
+	border-top: 5px solid white;
+	color: white;
+	font-size: 10px;
+	font-style: italic;
+	width: 100%;
+	text-align: left
+	box-shadow: 10px 5px 5px #888888;
+}	
+
+footer a:link {
+  color: #FFFFFF;
+}
+
+footer a:visited {
+` color: #CCCCCC;
+}
+
+footer a:hover {
+  color: #999999;
+}
+
+nav a:link {
+  color: #F0FFFF;
+}
+
+nav a:visited {
+` color: #F0F8FF;
+}
+
+nav a:hover {
+  color: #8A2BE2;
+}

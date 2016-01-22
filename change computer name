@@ -1,0 +1,7 @@
+sudo ls
+
+# run the command first and then copy paste the other stuff
+sudo scutil --set ComputerName "Lolita"
+sudo scutil --set HostName "Lolita"
+sudo scutil --set LocalHostName "Lolita"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Lolita"

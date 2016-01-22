@@ -1,0 +1,153 @@
+body {
+    font-family: "Arial", sans-serif;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.mic {
+    height: 33px;
+    width: 48px;
+    float: right;
+    opacity: 0.8;
+    margin: -34px 4px 2px 0px;
+}
+
+a:-webkit-any-link {
+text-decoration: none !important;
+color: inherit 
+}
+
+.headLinks li:last-child:-webkit-any-link {
+    font: white !important;
+}
+
+article {
+    /*width: 1000px;*/
+    margin: 0px auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchBox {
+    width: 450px;
+    height: 33px;
+    border: 1px solid rgba(128,128,128,0.3);
+    margin-top: 28px;
+    margin-bottom: 28px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boxText {
+    margin: 8px;
+    padding: 0;
+    top: 5px;
+    left: 3px;
+    color: black;
+    opacity: 0.8;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    text-align: right;
+    padding-top: 15px;
+    margin-right: -400px;
+}
+
+li {
+    font-size: 13px;
+    color: #666;
+    display: inline;
+}
+
+.headLinks li {
+    display: inline;
+    margin-right: 13px;
+    text-decoration: none;
+}
+
+.headLinks li:hover {
+    text-decoration: underline;
+}
+
+.headLinks li:last-child {
+    color: white;
+    background-color: rgba(23, 108, 237, 0.84);
+    padding: 8px;
+    border: 2px solid #4285f4;
+    font-weight: bold;
+}
+
+.headLinks li:last-child:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.mainLogo {
+    width: 290px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 140px;
+}
+
+.searchButtons {
+    height: 36px;
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.searchButton {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #575757 !important; 
+    text-decoration: none;
+    background-color: rgba(128,128,128,0.1);
+    padding: 8px;
+    margin: 5px;
+}
+
+a.searchButton:hover {
+    border: 1px solid rgba(128,128,128,0.3);
+    color: #666;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    padding-bottom: 15px;
+    background-color: rgba(128,128,128,0.1);
+    border-top: 1px solid rgba(128,128,128,0.3);
+    margin-top: 500px;
+    margin-right: 10px;
+    margin-left: -05px;
+    text-decoration: none;
+}
+
+footer .rightFooter {
+    float: right;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer .leftFooter {
+    float: left;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.rightFooter li:hover, .leftFooter li:hover {
+    text-decoration: underline;
+}

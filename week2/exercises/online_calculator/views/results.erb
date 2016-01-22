@@ -1,0 +1,18 @@
+<!-- views/add.erb -->
+<!doctype html>
+<html>
+<head>
+	<title>Online Calculator</title>
+</head>
+<body>
+  <h1>RESULTS</h1>
+
+<%= "#{@first} #{@op} #{@second} = #{@result}" %>
+
+
+<form action="/stored" method="POST">
+	<button type="submit" name="stored" value="<%= @result %>">SAVE</button>
+</form>
+
+</body>
+</html>

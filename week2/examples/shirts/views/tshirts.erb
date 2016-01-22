@@ -1,0 +1,19 @@
+<h1>Nizar's T-Shirt Store</h1>
+
+<p> You have <%= @number_of_tems %> items in your cart.</p>
+
+<a href="/checkout">
+	Checkout
+</a>
+
+<p>Our amazing products are:</p>
+
+<ul>
+	<% @shirts.each_with_index do |tshirt, i| %>
+		<li>
+			<a href="/tshirt/<%= i + 1 %>">
+				<%= tshirt %>
+			</a>
+		</li>
+	<% end %>
+</ul>

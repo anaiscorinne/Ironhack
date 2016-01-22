@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="text-center">
+	<h1><%= @post_type.title %></h1><br>
+	<h4><%= @post_type.date %></h4><br>
+	<p><%= @post_type.text %></p><br>
+	-----------------------------------<br><br>
+	<p><%= @comment %>
+	<form action="/comment/<%= @post_id %>" method="POST">
+		<input type="text" name="author" placeholder="Your name goes here..." style="width;100px; height:26px; border-radius:3px;"><br><br>
+		<input type="text" name="content" placeholder="Your really cool comment goes here..." style="width:300px; height:32px; border-radius:5px; font-size:14px;"><br><br>
+		<button type="submit">Post It!</button>
+		<button type="reset">Clear It!</button>
+	</form><br>
+
+		<% @displayed_comments.each do |comment| %>
+				<%= comment.author %><br>
+				<%= comment.content %><br>
+				***  ***
+				<br><br>
+			<% end %>
+	<a href="/">Home</a>
+</body>
+</html>

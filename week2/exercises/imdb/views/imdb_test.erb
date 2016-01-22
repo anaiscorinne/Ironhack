@@ -1,0 +1,16 @@
+<h1>IMDB gem test</h1>
+
+<p>
+	The search term <strong> "" </strong> resulted in <%= @number_of_results %> movies.
+</p>
+
+<h2>
+	First result:
+	<%= @first_result.title %>
+</h2>
+
+<img src="<%= @first_result.poster %>">
+
+<p>
+	Directed by <%= @first_result.director[0] %>
+</p>

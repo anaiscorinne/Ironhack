@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="text-center">
+	<h1>The BLOG</h1>
+	<h3>@anais</h3>
+			<% @posts.each do |post| %>
+				<%= post.title %><br>
+				<%= post.date %><br>
+				<a href="/post/<%= post.id %>">Read more</a><br>
+				--------------------------------
+				<br>
+			<% end %>
+	
+	</div>
+</body>
+</html>
