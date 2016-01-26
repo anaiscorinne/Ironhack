@@ -11,7 +11,8 @@
 
 
 <form action="/stored" method="POST">
-	<button type="submit" name="stored" value="<%= @result %>">SAVE</button>
+<!-- could have used a hidden input instead here for when there are several fields being saved -->
+	<button type="submit" name="value" value="<%= @result %>">SAVE</button>
 </form>
 
 </body>

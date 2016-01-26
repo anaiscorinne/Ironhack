@@ -1,24 +1,26 @@
 class Calculator
-	attr_reader :result
-
-	def add(first_number, second_number)
-		@result = first_number + second_number
-		@result
+	def initialize(num_one, num_two)
+		@num_one = num_one
+		@num_two = num_two
 	end
 
-	def subtract(first_number, second_number)
-		@result = first_number - second_number
-		@result
+	def add
+		@num_one + @num_two
 	end
 
-	def multiply(first_number, second_number)
-		@result = first_number * second_number
-		@result
+	def subtract
+		@num_one - @num_two
 	end
 
-	def divide(first_number, second_number)
-		@result = first_number / second_number
-		@result
+	def multiply
+		@num_one * @num_two
 	end
 
+	def divide
+		@num_one / @num_two
+	end
+
+	def method_missing(meth, *args)
+		#div, sub, mult
+	end
 end
