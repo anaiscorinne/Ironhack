@@ -54,13 +54,12 @@ function decoder(arrayOfWords){
         i = i + 1;
         if (charCounter % 5 === 0){
             charCounter = 0;
-        }
-    }
+        };
+    };
     return secretMessage
 }
 
 
-// message should be "dynamite"
 message = decoder(words);
 console.log(message);
 
