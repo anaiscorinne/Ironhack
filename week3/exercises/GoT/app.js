@@ -12,11 +12,16 @@ function fileActions(err, file){
 function episodePrinter (episode_array) {
    
     for (var i = 0; i < episode_array.length ; i++) {
-       
+      var x = episode_array[i].rating
+      if (x > 8.5) {
       console.log("Title: " + episode_array[i].title + " Number: " + episode_array[i].episode_number );
       console.log(episode_array[i].description);
       console.log("Rating: " + episode_array[i].rating + starAdd(episode_array[i].rating))
+      }
+    else {
+      console.log("Rating is less than 8.5")
     }
+  }
 }
 
  function sortedEpisodes(episode_array) {
@@ -32,6 +37,8 @@ function starAdd (number) {
     }
     return stars
 }
+
+
 
 
 
