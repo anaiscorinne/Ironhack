@@ -5,9 +5,8 @@ function fileActions(err, file){
     }
   else{
     var episodes = JSON.parse(file);
-    sorted_array=sortedEpisodes(episodes);
-    episodePrinter (sorted_array);
-}
+    sortedEpisodes(episodes, episodePrinter);
+  }
 }
 function episodePrinter (episode_array) {
    
@@ -24,10 +23,11 @@ function episodePrinter (episode_array) {
   }
 }
 
- function sortedEpisodes(episode_array) {
-  return episode_array.sort(function(a, b){
+ function sortedEpisodes(episode_array, callback) {
+  var sorted_episodes_array = episode_array.sort(function(a, b){
         return a.episode_number-b.episode_number
         });
+    callback(sorted_episodes_array)
 }
 
 function starAdd (number) {
