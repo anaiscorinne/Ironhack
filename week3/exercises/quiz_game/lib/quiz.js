@@ -7,6 +7,9 @@ var Quiz = function(questionsArray) {
 	this.totalPoints = 0;
 	this.negPoints = this.currentQuestion.negPoints;
 	this.posPoints = this.currentQuestion.posPoints;
+	var randomnumber = Math.floor(Math.random()*11);
+	this.bonusQuestion = this.questionsArray[randomnumber-1];
+	
 }
 
 Quiz.prototype.questionManager = function() {
@@ -17,7 +20,7 @@ Quiz.prototype.questionManager = function() {
 		read(options, this.checkAnswer.bind(this));
 	}
 	else {
-		console.log("You know some capitals!!")
+		console.log("You now know some capitals!!")
 		console.log("CONGRATS!!")
 		console.log(`Total points: ${this.totalPoints}.`)
 	}
@@ -29,16 +32,32 @@ Quiz.prototype.checkAnswer = function(error, userAnswer) {
 	}
 	else if (userAnswer === this.currentQuestion.answer) {
 		this.i++;
-		this.totalPoints += this.posPoints
-		this.currentQuestion = this.questionsArray[this.i]
-		console.log("That's right!");
-		console.log("---------------");
-		this.questionManager();
+			if (this.bonusQuestion === this.currentQuestion) {
+				this.totalPoints += (this.posPoints * 2);
+				this.currentQuestion = this.questionsArray[this.i]
+				console.log("You got the Bonus! Double points for you!!");
+				console.log("---------------");
+				this.questionManager();
+			}
+			else { 
+				this.totalPoints += this.posPoints;
+				this.currentQuestion = this.questionsArray[this.i]
+				console.log("That's right!");
+				console.log("---------------");
+				this.questionManager();
+			}
 	}
 	else {
-		this.totalPoints -= this.negPoints
-		console.log("You're wrong, try again!");
-		this.questionManager();
+			if (this.bonusQuestion === this.currentQuestion) {
+				this.totalPoints -= (this.negPoints * 2);
+				console.log("You're wrong, and that BONUS just lost you double points!");
+				this.questionManager();
+			}
+			else {
+				this.totalPoints -= this.negPoints;
+				console.log("You're wrong, try again!");
+				this.questionManager();
+			}
 	}
 }
 
