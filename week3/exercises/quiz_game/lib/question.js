@@ -7,4 +7,6 @@ var Questions = function(id, question, answer, posPoints, negPoints) {
 }
 
 
+
+
 module.exports = Questions;

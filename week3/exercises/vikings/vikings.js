@@ -6,8 +6,8 @@ var VikingHuman = function(name, health, strength) {
 
 var maxHealth = 100;
 var minHealth = 50;
-var maxStrength = 30;
-var minStrength = 15;
+var maxStrength = 10;
+var minStrength = 5;
 
 
 

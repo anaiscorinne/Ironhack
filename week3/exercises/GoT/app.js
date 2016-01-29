@@ -23,7 +23,7 @@ function episodePrinter (episode_array) {
   }
 }
 
- function sortedEpisodes(episode_array, callback) {
+function sortedEpisodes(episode_array, callback) {
   var sorted_episodes_array = episode_array.sort(function(a, b){
         return a.episode_number-b.episode_number
         });
