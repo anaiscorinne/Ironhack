@@ -1,0 +1,44 @@
+.nav-buttons {
+	margin-top: 8px;
+	border-color: transparent;
+}
+
+.twitter_icon {
+	height: 35px;
+	margin-top: 5px;
+}
+
+.search {
+	border-radius: 15px;
+}
+
+.profile-photo {
+	height: 36px;
+	width: 36px;
+	border-radius: 8px;
+	border-color: grey;
+	margin-top: 8px;
+}
+
+.tweet-button {
+	margin-top: 8px;
+	margin-left: 4px;
+	background-color: #009999;
+	color: white;
+}
+
+.container {
+}
+
+.banner {
+	padding: 0;
+}
+
+.banner_photo {
+	width: 100%;
+	padding: 0;
+	height: 320px;
+	position: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+}
