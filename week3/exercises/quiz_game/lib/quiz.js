@@ -2,8 +2,11 @@ var read = require('read');
 
 var Quiz = function(questionsArray) {
 	this.questionsArray = questionsArray;
-	this.i = 0
-	this.currentQuestion = this.questionsArray[this.i]
+	this.i = 0;
+	this.currentQuestion = this.questionsArray[this.i];
+	this.totalPoints = 0;
+	this.negPoints = this.currentQuestion.negPoints;
+	this.posPoints = this.currentQuestion.posPoints;
 }
 
 Quiz.prototype.questionManager = function() {
@@ -16,6 +19,7 @@ Quiz.prototype.questionManager = function() {
 	else {
 		console.log("You know some capitals!!")
 		console.log("CONGRATS!!")
+		console.log(`Total points: ${this.totalPoints}.`)
 	}
 }
 
@@ -25,12 +29,14 @@ Quiz.prototype.checkAnswer = function(error, userAnswer) {
 	}
 	else if (userAnswer === this.currentQuestion.answer) {
 		this.i++;
+		this.totalPoints += this.posPoints
 		this.currentQuestion = this.questionsArray[this.i]
 		console.log("That's right!");
 		console.log("---------------");
 		this.questionManager();
 	}
 	else {
+		this.totalPoints -= this.negPoints
 		console.log("You're wrong, try again!");
 		this.questionManager();
 	}
