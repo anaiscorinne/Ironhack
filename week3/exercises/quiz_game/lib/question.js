@@ -5,4 +5,4 @@ var Questions = function(id, question, answer) {
 }
 
 
-modules.exports = Questions;
+module.exports = Questions;
