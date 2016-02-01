@@ -1,0 +1,5 @@
+<ul>
+	<% @contact.each do |c| %>
+		<li><%="Name: #{c.name} - Email: #{c.email_address}"%>
+	<% end %>
+</ul>
