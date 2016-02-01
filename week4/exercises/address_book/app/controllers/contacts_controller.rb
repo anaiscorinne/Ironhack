@@ -22,7 +22,8 @@ class ContactsController < ApplicationController
     # Now we save the contact
     contact.save
 
-    render(:text => contact.attributes)
+    # render(:text => contact.attributes)
+    redirect_to("/contacts")
   end
 
 end
