@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => "contacts#index"
-  
+  get '/new' => "contacts#new"
+  post("/contacts", :to => "contacts#create")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
