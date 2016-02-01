@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+unless Project.all.any?
+25.times do |i|
+	Project.create(name: "Project #{i}", description: "Description #{i}")
+end
+
+
+Project.create name: 'Ironhack', description: 'Ironhack is..'
+Project.create name: 'Time tracking app'
+Project.create name: 'Recipes', description: 'Track my favorite recipes'
