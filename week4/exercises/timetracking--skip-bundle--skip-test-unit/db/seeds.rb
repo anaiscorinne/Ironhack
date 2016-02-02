@@ -13,6 +13,7 @@ unless Project.all.any?
 		p.entries.create(hours: 1 * i, minutes: 10 * i)
 	else
 		p.entries.create(hours: 1 * i, minutes: 10 * i)
+		end
 	end
 end
 
