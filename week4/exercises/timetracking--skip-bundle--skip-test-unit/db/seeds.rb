@@ -8,10 +8,15 @@
 
 unless Project.all.any?
 25.times do |i|
-	Project.create(name: "Project #{i}", description: "Description #{i}")
+	p = Project.create(name: "Project #{i}", description: "Description #{i}")
+	if i.odd?
+		p.entries.create(hours: 1 * i, minutes: 10 * i)
+	else
+		p.entries.create(hours: 1 * i, minutes: 10 * i)
+	end
 end
 
 
-Project.create name: 'Ironhack', description: 'Ironhack is..'
-Project.create name: 'Time tracking app'
-Project.create name: 'Recipes', description: 'Track my favorite recipes'
+# Project.create name: 'Ironhack', description: 'Ironhack is..'
+# Project.create name: 'Time tracking app'
+# Project.create name: 'Recipes', description: 'Track my favorite recipes'

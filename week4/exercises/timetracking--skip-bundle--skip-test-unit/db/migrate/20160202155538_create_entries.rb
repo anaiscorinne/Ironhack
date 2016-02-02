@@ -10,3 +10,5 @@ class CreateEntries < ActiveRecord::Migration
     end
   end
 end
+
+# rails g model Project :references, etc...
