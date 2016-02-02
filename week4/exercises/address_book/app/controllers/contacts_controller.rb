@@ -54,7 +54,7 @@ class ContactsController < ApplicationController
 
   def search
     letter = params[:letter]
-    @contacts = Contact.where('substr(name, 1, 1) = ?', letter)
+    @contacts = Contact.where("name LIKE ?", "#{letter}%")
     render("search")
   end
 
