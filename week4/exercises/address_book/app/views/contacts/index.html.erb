@@ -1,6 +1,6 @@
 <ul>
 	<% @contact.each do |c| %>
-		<li><%="Name: #{c.name} - Email: #{c.email_address}"%>
+		<li><a href="/contacts/<%=c.id%>"><%="Name: #{c.name}"%></a>
 	<% end %>
 </ul>
 <a href="/new">Sign up to the contact list!</a>
