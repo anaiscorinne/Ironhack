@@ -1,0 +1,6 @@
+<h1>Search Page</h1>
+<ul>
+<% @contacts.each do |c| %>
+<li><a href="/contacts/<%=c.id%>"><%="Name: #{c.name.inspect}"%></a></li>
+</ul>
+<% end %>

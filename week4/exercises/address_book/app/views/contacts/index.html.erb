@@ -1,3 +1,13 @@
+<!-- form, search bar, letter searhability -->
+<form action="/search" method="POST">
+<input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+<div>
+	<input name="letter" id="search_letter">
+	</textarea>
+	<button type="submit">search</button>
+</div>
+</form>
 <ul>
 	<% @contact.each do |c| %>
 		<li><a href="/contacts/<%=c.id%>"><%="Name: #{c.name}"%></a>

@@ -52,5 +52,11 @@ class ContactsController < ApplicationController
     render("favorite_contacts")
   end
 
+  def search
+    letter = params[:letter]
+    @contacts = Contact.where('substr(name, 1, 1) = ?', letter)
+    render("search")
+  end
+
 
 end
