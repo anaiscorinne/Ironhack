@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
   get '/contact' => 'site#contact'
   get "/projects" => "projects#index" # projects controller that will have index action
-
+  get "/projects" => "projects#index"
+  get "/projects/:id" => "projects#show"
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
