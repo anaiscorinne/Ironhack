@@ -1,8 +1,9 @@
 <ul>
 	<% @contact.each do |c| %>
+	<% if c.status? %>
 		<li><a href="/contacts/<%=c.id%>"><%="Name: #{c.name}"%></a>
 	<% end %>
+	<% end %>
 </ul>
-<a href="/new">Sign up to the contact list!</a>
-<br>
-<a href="/favorites">Check out your favorites</a>
+
+<a href="/">go home</a>
