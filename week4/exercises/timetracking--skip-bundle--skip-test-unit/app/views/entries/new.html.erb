@@ -1,0 +1,24 @@
+<h1>Save a project entry:</h1>
+<ul>
+<% if @entry.errors.any? %>
+	<% @entry.errors.full_messages.each do |error_msg| %>
+		<li><%= error_msg %></li>
+	<% end %>
+<% end %>
+</ul>
+<%= form_for [@project, @entry] do |f| %>
+	<br>
+	<%= f.label :hours %>
+	<%= f.text_field :hours %>
+	<br>
+	<%= f.label :minutes %>
+	<%= f.text_field :minutes %>
+	<br>
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+	<br>
+
+	<%= f.submit 'Save' %>
+<% end %>
+
+<%= link_to("Cancel", project_entries_path(@project)) %>

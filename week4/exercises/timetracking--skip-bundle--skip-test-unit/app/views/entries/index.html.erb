@@ -2,5 +2,10 @@
 <ul>
 <% @project.entries.each do |e| %>
 	<li><%= "#{e.hours} hours: #{e.minutes} minutes" %></li>
+
+<%= link_to("Edit", edit_project_entry_path(@project, e)) %>
 <% end %>
 </ul>
+
+<%= link_to("Projects", projects_path) %>
+<%= link_to("New Entry", new_project_entry_path(@project)) %>

@@ -2,6 +2,8 @@
 	<%- @projects.each do |p| %>
 		<% if p.description? %>
 		<li><%= "ID: #{p.id} - Name: #{p.name} - Description: #{p.description}" %></li>
+		<%= link_to p.name, project_entries_path(p) %>
+		<!-- <a href=<%= project_entries_path(p) %>><%= p.name %></a> -->
 		<% else %>
 		<li><%= "ID: #{p.id} - Name: #{p.name}" %>
 	<% end %>
