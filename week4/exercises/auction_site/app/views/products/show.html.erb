@@ -1,0 +1,9 @@
+<p><%= @product.title %></p>
+<p><%= @product.description %></p>
+<p><%= @product.amount %></p>
+<br><br>
+<%= link_to('Become a user', new_user_path) %>
+<br>
+<%= link_to('Home', '/') %>
+<br><br>
+<%= link_to("Destroy", user_products_path(@product), method: :delete, data: { confirm: "Are you sure?"}) %>
