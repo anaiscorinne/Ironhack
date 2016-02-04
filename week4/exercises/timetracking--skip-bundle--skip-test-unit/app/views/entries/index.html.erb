@@ -1,11 +1,9 @@
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
+<%= flash_message %>
 
 <h1><%= @project.name %></h1>
 <ul>
 <% @project.entries.each do |e| %>
-	<li><%= "#{e.hours} hours: #{e.minutes} minutes" %></li>
+	<li><%= display_entry(e) %></li>
 
 <%= link_to("Edit", edit_project_entry_path(@project, e)) %>
 <%= link_to("Delete", project_entry_path(@project, e), method: :delete, data: {confirm: "Are you sure?"}) %>
