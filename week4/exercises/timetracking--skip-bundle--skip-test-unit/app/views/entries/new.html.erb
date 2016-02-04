@@ -1,4 +1,10 @@
+
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
 <h1>Save a project entry:</h1>
+
 <ul>
 <% if @entry.errors.any? %>
 	<% @entry.errors.full_messages.each do |error_msg| %>

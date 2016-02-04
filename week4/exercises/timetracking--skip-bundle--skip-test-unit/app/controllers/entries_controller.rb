@@ -23,10 +23,12 @@ class EntriesController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@entry = @project.entries.new(entry_params)
 			if @entry.save
+				flash[:notice] = "Entry created succesfully!"
 				redirect_to action: 'index', controller: 'entries', project_id: @project.id
 			else
-				render 'new'
-			end
+				flash[:alert] = "The entry could not be created!"
+ 				render 'new'
+ 			end
 	end
 
 	def update
@@ -40,9 +42,10 @@ class EntriesController < ApplicationController
 	end
 
 	def destroy
-		entry = Entry.find(params[:id])
+		project = Project.find(params[:project_id])
+		entry = project.entries.find(params[:id])
 		entry.destroy
-		redirect_to project_entries_path(params[:project_id])
+		redirect_to project_entries_path(project)
 	end
 
 	private #this says only the three arguments are allowed!
