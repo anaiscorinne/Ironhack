@@ -1,7 +1,7 @@
 <h1>List a new product!</h1>
 <ul>
 <% if @product.errors.any? %>
-	<% @product.errors.full_message.each do |error_msg| %>
+	<% @product.errors.full_messages.each do |error_msg| %>
 		<li><%= error_msg %></li>
 	<% end %>
 <% end %>
@@ -13,10 +13,13 @@
 	<%= f.text_field :title %>
 	<br>
 	<%= f.label :description %>
-	<%= f.text_field :description %>
+	<%= f.text_area :description %>
 	<br>
 	<%= f.label :amount %>
 	<%= f.number_field :amount %>
+	<br>
+	<%= f.label :deadline %>
+	<%= f.datetime_local_field :deadline %>
 	<br>
 	<%= f.submit "Save" %>
 	<br>

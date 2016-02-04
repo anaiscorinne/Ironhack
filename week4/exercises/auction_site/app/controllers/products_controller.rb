@@ -1,12 +1,17 @@
 class ProductsController < ApplicationController
 
 	def index
-		@user = User.find_by(id: params[:user_id])
-		@products = Product.all
+		if params[:user_id]
+			@user = User.find_by(id: params[:user_id])
+			@products = @user.products.all
+		else
+			@products = Product.all
+		end
 	end
 
 	def show
-		@product = User.products.find_by(id: params[:id])
+		@user = User.find_by(id: params[:user_id])
+		@product = @user.products.find_by(id: params[:id])
 		if @product
 			render 'show'
 		else
@@ -18,7 +23,7 @@ class ProductsController < ApplicationController
 		@user = User.find_by(id: params[:user_id])
 		@product = @user.products.new(product_params)
 		if @product.save
-			link_to user_products_path
+			redirect_to user_products_path(@user)
 		else
 			render 'new'
 		end
@@ -34,6 +39,6 @@ class ProductsController < ApplicationController
 
 	private #this says only the three arguments are allowed!
 	def product_params
-		params.require(:products).permit(:title, :description, :amount)
+		params.require(:product).permit(:title, :description, :amount, :deadline)
 	end
 end

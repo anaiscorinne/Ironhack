@@ -1,13 +1,13 @@
 <ul>
 <% @products.each do |product| %>
 	<li>
-		<%= link_to("#{product.title}", user_product_path) %>
+		<%= link_to("#{product.title}", user_product_path(product.user_id, product)) %>
 		<br>
 		<%= product.description %>
 		<br>
 		<%= product.deadline %>
 		<br>
-		<%= link_to("Destroy", user_products_path(@user, product), method: :delete, data: { confirm: "Are you sure?"}) %>
+		<%= link_to("Destroy", user_product_path(product.user_id, product), method: :delete, data: { confirm: "Are you sure?"}) %>
 		<br><br>
 	</li>
 <% end %>
