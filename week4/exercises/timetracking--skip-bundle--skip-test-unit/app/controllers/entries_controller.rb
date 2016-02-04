@@ -39,6 +39,11 @@ class EntriesController < ApplicationController
 		end
 	end
 
+	def destroy
+		entry = Entry.find(params[:id])
+		entry.destroy
+		redirect_to project_entries_path(params[:project_id])
+	end
 
 	private #this says only the three arguments are allowed!
 	def entry_params

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 # FOLLOWING RAILS CONVENTION:
 
     resources :projects, only: [:show, :new, :create, :index] do
-      resources :entries, only: [:show, :index, :new, :create, :edit, :update]
+      resources :entries, only: [:show, :index, :new, :create, :edit, :update, :destroy]
     end
 
     # or

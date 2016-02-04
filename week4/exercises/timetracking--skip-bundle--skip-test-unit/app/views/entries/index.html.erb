@@ -4,6 +4,7 @@
 	<li><%= "#{e.hours} hours: #{e.minutes} minutes" %></li>
 
 <%= link_to("Edit", edit_project_entry_path(@project, e)) %>
+<%= link_to("Delete", project_entry_path(@project, e), method: :delete, data: {confirm: "Are you sure?"}) %>
 <% end %>
 </ul>
 
