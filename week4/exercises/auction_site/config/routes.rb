@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
 
   resources :users, only: [:show, :create, :destroy, :new, :index] do
-    resources :products, only: [:index, :show, :create, :destroy]
+    resources :products, only: [:index, :show, :create, :destroy, :new]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
