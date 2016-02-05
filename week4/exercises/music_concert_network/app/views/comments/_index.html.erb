@@ -2,11 +2,13 @@
 <ul>
 	<% @comments.each do |comment| %>
 		<li>
-			<p>Name: <%=comment.name %></p>
-			<p><%=comment.email%></p>
+			<div class="alert alert-info" role="alert">
+			<%=comment.name %> | 
+			<%=comment.email%>
+			<br>
 			<hr>
-			<p><%=comment.body%></p>
-			<hr>
+			<%=comment.body%>
+			</div>
 			<br>
 		</li>
 	<%end%>
