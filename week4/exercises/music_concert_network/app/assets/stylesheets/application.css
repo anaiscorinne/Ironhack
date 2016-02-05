@@ -5,3 +5,7 @@ body {
 .navbar-fixed-top {
 	background-color: white;
 }
+
+ul {
+	list-style: none;
+}
