@@ -9,5 +9,6 @@ class ConcertsController < ApplicationController
   end
 
   def show
+  	@concert = Concert.find_by(id: params[:id])
   end
 end
