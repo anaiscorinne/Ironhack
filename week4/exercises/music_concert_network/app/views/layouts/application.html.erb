@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>MusicConcertNetwork</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
 	<header>
@@ -16,6 +16,13 @@
 	</header>
 
 <%= yield %>
-
+	<footer>
+		<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse">
+  		<ul class="container">
+	    	<li role="presentation"><a href="/">Home</a></li>
+				<li role="presentation"><a href="#">Concert List</a></li>
+  		</ul>
+</nav>
+	</footer>
 </body>
 </html>
