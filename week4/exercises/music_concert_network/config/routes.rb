@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 get "/" => "concerts#index"
 
 resources :concerts, only: [:show, :index, :new] do
+  resources :comments, only: [:index, :new, :create] do
+  end
 end
 
 

@@ -1,0 +1,13 @@
+<h4>Leave a comment below:</h4>
+<%= form_for [@concert, @comment] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+	<br>
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+	<br>
+	<%= f.submit "Save" %>
+<% end %>
