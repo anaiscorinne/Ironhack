@@ -6,6 +6,14 @@ class ConcertsController < ApplicationController
   end
 
   def new
+  	@concert = Concert.new
+  end
+
+  def create
+  	@concert = Concert.create(concert_params)
+  		if @concert.save
+  			link_to concerts_path
+  		end
   end
 
   def show
@@ -13,5 +21,9 @@ class ConcertsController < ApplicationController
   	@comments = @concert.comments.all
   	@comment = @concert.comments.new
   end
+
+  private
+  def concert_params
+  	params.require(:concert).permit(:artist, :venue, :city, :date, :price, :description)
 
 end
