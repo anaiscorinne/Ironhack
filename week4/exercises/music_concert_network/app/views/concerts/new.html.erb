@@ -2,23 +2,38 @@
 
 
 <%= form_for @concert do |f| %>
+	<div>
+		<%= f.label :artist %>
+		<%= f.text_field :artist %>
+	</div>
 
-	<%= f.label :artist %>
-	<%= f.text_field :artist %>
+	<div>
+		<%= f.label :venue %>
+		<%= f.text_field :venue %>
+	</div>
 
-	<%= f.label :venue %>
-	<%= f.text_field :venue %>
+	<div>
+		<%= f.label :city %>
+		<%= f.text_field :city %>
+	</div>
 
-	<%= f.label :city %>
-	<%= f.text_field :city %>
+	<div>
+		<%= f.label :date %>
+		<%= f.datetime_field :date %>
+	</div>
 
-	<%= f.label :date %>
-	<%= f.datetime_field :date %>
+	<div>
+		<%= f.label :price %>
+		<%= f.text_field :price %>
+	</div>
 
-	<%= f.label :price %>
-	<%= f.text_field :price %>
+	<div>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
+	<button type="Submit">
+		Add this concert
+	</button>
 
 <% end %>
