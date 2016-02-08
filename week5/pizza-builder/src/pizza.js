@@ -1,10 +1,15 @@
+$(document).ready(function(){
+	$('.gfCrustPrice').toggle()
+	$('.whiteSaucePrice').toggle()
+});
+
 $(".btn").on("click", function() {
 	$(this).toggleClass("active")
-})
-// Write your Pizza Builder JavaScript in this file.
+});
+
+
 $(".btn-pepperonni").on('click', function() {
 	$(".pep").toggle();
-	// $(".btn-pepperonni").toggleClass("active");
 		
 		if ($(".btn-pepperonni").hasClass("active")== false) {
 			var totalPrice = Number($(".total").text().slice(1));
@@ -16,7 +21,8 @@ $(".btn-pepperonni").on('click', function() {
 		var withNoPrice = "" + (totalPrice + 1);
 		$(".total").text("$" + withNoPrice);
 			}
-})
+		$(".pepperonniPrice").toggle();
+});
 
 $(".btn-green-peppers").on('click', function() {
 	$(".green-pepper").toggle();
@@ -30,7 +36,8 @@ $(".btn-green-peppers").on('click', function() {
 		var withNoPrice = "" + (totalPrice + 1);
 		$(".total").text("$" + withNoPrice);
 			}
-})
+		$(".greenPeppersPrice").toggle();
+});
 
 $(".btn-mushrooms").on('click', function() {
 	$(".mushroom").toggle();
@@ -44,7 +51,8 @@ $(".btn-mushrooms").on('click', function() {
 		var withNoPrice = "" + (totalPrice + 1);
 		$(".total").text("$" + withNoPrice);
 			}
-})
+		$(".mushroomPrice").toggle();
+});
 
 $(".btn-crust").on("click", function() {
 	$(".crust").toggleClass("crust-gluten-free");
@@ -58,7 +66,9 @@ $(".btn-crust").on("click", function() {
 		var withNoPrice = "" + (totalPrice + 5);
 		$(".total").text("$" + withNoPrice);
 			}
-})
+		
+		$(".gfCrustPrice").toggle();
+});
 
 $(".btn-sauce").on("click", function() {
 	$(".sauce").toggleClass("sauce-white");
@@ -72,4 +82,5 @@ $(".btn-sauce").on("click", function() {
 		var withNoPrice = "" + (totalPrice + 3);
 		$(".total").text("$" + withNoPrice);
 			}
-})
+		$(".whiteSaucePrice").toggle();
+});
