@@ -1,7 +1,7 @@
 // Write your Pizza Builder JavaScript in this file.
 $(".btn-pepperonni").on('click', function() {
 	$(".pep").toggle();
-	$(".btn-pepperonni").toggleClass("active");
+	// $(".btn-pepperonni").toggleClass("active");
 
 	if ($(".btn-pepperonni").hasClass("active") == false) {
 		var value = $("strong").text();
@@ -23,20 +23,22 @@ $(".btn-pepperonni").on('click', function() {
 
 $(".btn-green-peppers").on('click', function() {
 	$(".green-pepper").toggle();
-	$(".btn-green-peppers").toggleClass("active");
+	// $(".btn-green-peppers").toggleClass("active");
 })
 
 $(".btn-mushrooms").on('click', function() {
 	$(".mushroom").toggle();
-	$(".btn-mushrooms").toggleClass("active");
+	// $(".btn-mushrooms").toggleClass("active");
 })
 
 $(".btn-crust").on("click", function() {
 	$(".crust").toggleClass("crust-gluten-free");
-	$(".btn-crust").toggleClass("active");
 })
 
 $(".btn-sauce").on("click", function() {
 	$(".sauce").toggleClass("sauce-white");
-	$(".btn-sauce").toggleClass("active");
+})
+
+$(".btn").on("click", function() {
+	$(this).toggleClass("active")
 })
