@@ -1,44 +1,75 @@
+$(".btn").on("click", function() {
+	$(this).toggleClass("active")
+})
 // Write your Pizza Builder JavaScript in this file.
 $(".btn-pepperonni").on('click', function() {
 	$(".pep").toggle();
 	// $(".btn-pepperonni").toggleClass("active");
-
-	if ($(".btn-pepperonni").hasClass("active") == false) {
-		var value = $("strong").text();
-		var valueWithoutDollarSign = value.slice(1)
-		var valueToInt = parseInt(valueWithoutDollarSign);
-		var newValue = valueToInt - 1;
-		var newValueToStr = newValue.toString();
-		$("strong").text("$" + newValueToStr);
-	}
-	else {
-		var value = $("strong").text();
-		var valueWithoutDollarSign = value.slice(1)
-		var valueToInt = parseInt(valueWithoutDollarSign);
-		var newValue = valueToInt + 1;
-		var newValueToStr = newValue.toString();
-		$("strong").text("$" + newValueToStr);
-	}
+		
+		if ($(".btn-pepperonni").hasClass("active")== false) {
+			var totalPrice = Number($(".total").text().slice(1));
+			var withPrice = "" + (totalPrice - 1);
+			$(".total").text("$" + withPrice);
+		}
+		else {
+		var totalPrice = Number($(".total").text().slice(1));
+		var withNoPrice = "" + (totalPrice + 1);
+		$(".total").text("$" + withNoPrice);
+			}
 })
 
 $(".btn-green-peppers").on('click', function() {
 	$(".green-pepper").toggle();
-	// $(".btn-green-peppers").toggleClass("active");
+	if ($(".btn-green-peppers").hasClass("active")== false) {
+			var totalPrice = Number($(".total").text().slice(1));
+			var withPrice = "" + (totalPrice - 1);
+			$(".total").text("$" + withPrice);
+		}
+		else {
+		var totalPrice = Number($(".total").text().slice(1));
+		var withNoPrice = "" + (totalPrice + 1);
+		$(".total").text("$" + withNoPrice);
+			}
 })
 
 $(".btn-mushrooms").on('click', function() {
 	$(".mushroom").toggle();
-	// $(".btn-mushrooms").toggleClass("active");
+	if ($(".btn-mushrooms").hasClass("active")== false) {
+			var totalPrice = Number($(".total").text().slice(1));
+			var withPrice = "" + (totalPrice - 1);
+			$(".total").text("$" + withPrice);
+		}
+		else {
+		var totalPrice = Number($(".total").text().slice(1));
+		var withNoPrice = "" + (totalPrice + 1);
+		$(".total").text("$" + withNoPrice);
+			}
 })
 
 $(".btn-crust").on("click", function() {
 	$(".crust").toggleClass("crust-gluten-free");
+	if ($(".btn-crust").hasClass("active")== false) {
+			var totalPrice = Number($(".total").text().slice(1));
+			var withPrice = "" + (totalPrice - 5);
+			$(".total").text("$" + withPrice);
+		}
+		else {
+		var totalPrice = Number($(".total").text().slice(1));
+		var withNoPrice = "" + (totalPrice + 5);
+		$(".total").text("$" + withNoPrice);
+			}
 })
 
 $(".btn-sauce").on("click", function() {
 	$(".sauce").toggleClass("sauce-white");
-})
-
-$(".btn").on("click", function() {
-	$(this).toggleClass("active")
+	if ($(".btn-sauce").hasClass("active")== false) {
+			var totalPrice = Number($(".total").text().slice(1));
+			var withPrice = "" + (totalPrice - 3);
+			$(".total").text("$" + withPrice);
+		}
+		else {
+		var totalPrice = Number($(".total").text().slice(1));
+		var withNoPrice = "" + (totalPrice + 3);
+		$(".total").text("$" + withNoPrice);
+			}
 })
