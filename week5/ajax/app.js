@@ -3,17 +3,19 @@ $(document).on("ready", function () {
 		fetchCharacters();
 	});
 
-	$(".js-add-kylo").on("click", function () {
-		publishKylo();
+	$(".js-add-character").on("click", function (event) {
+		event.preventDefault();
+		publishCharacter();
 	});
 });
 
-function publishKylo () {
+function publishCharacter () {
 	var newCharacter = {
-		name: "Emo Kylo Ren",
-		occupation: "Whiner",
-		weapon: "Complaining"
+		name: $('.js-new-name').val(),
+		occupation: $('.js-new-occupation').val(),
+		weapon: $('.js-new-weapon').val()
 	};
+
 	$.ajax({
 		type: "POST",
 		url: 'https://ironhack-characters.herokuapp.com/characters',
@@ -28,10 +30,10 @@ function publishKylo () {
 			</li>
 		`;
 			$(".js-character-list").append(html);
-			alert("Emo Kylo Ren added succesfully!")
+			alert("Character added succesfully!")
 		},
 		error: function () {
-			alert("Could not add Kylo Ren")
+			alert("Could not add new character")
 		},
 	});
 }
