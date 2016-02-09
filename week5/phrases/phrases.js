@@ -6,11 +6,23 @@ var phrases = [
 	"Don't answer a question with a question."
 ];
 
-var random0to4 = Math.random() * 4;
-var randomInt = Math.round(random0to4);
-var randomPhrase = phrases[randomInt];
 
-$(document).on("ready", function() 
-{
+
+$(document).on("ready", function() { 
+	refreshRandomPhrase ();
 	$('.js-phrase-heading').text(randomPhrase);
+	
+	$(".js-refresh-button").on("click", function () {
+		refreshRandomPhrase ();
+	});
 });
+
+function refreshRandomPhrase () {
+	var random0to4 = Math.random() * 4;
+	var randomInt = Math.round(random0to4);
+	var randomPhrase = phrases[randomInt];
+
+	console.log(randomPhrase);
+
+	$('.js-phrase-heading').text(randomPhrase);
+};
