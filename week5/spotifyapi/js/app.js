@@ -109,7 +109,7 @@ function listTracks (albumID, albumName) {
 
 function displayTracks(tracks, albumName) {
 	var html = `
-		<h2>${albumName}'s Albums:</h2>
+		<h2>${albumName} Tracks:</h2>
 	`
 	$(".album-title").html(html);
 	
@@ -121,7 +121,7 @@ function displayTracks(tracks, albumName) {
 				<a target="_blank" href="${track.preview_url}">${track.name}</a>
 			</li>
 		`
-		$("js-track-list").append(html);
+		$(".js-track-list").append(html);
 	});
 	// $("js-track-modal").modal("show");
 }
