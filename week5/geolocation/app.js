@@ -13,7 +13,7 @@ $(document).on("ready", function () {
 //-----------------Definitions Below----------------------
 
 function getUserLocation () {
-	console.log("Getting location...")
+	// console.log("Getting location...")
 	navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 	//optional third parameter: optionsObj - var above
 }
