@@ -39,7 +39,7 @@ function displayMap(lat, lng) {
 	var mapDiv = document.getElementById('map');
         var map = new google.maps.Map(mapDiv, {
           center: {lat: latitude, lng: longitude},
-          zoom: 8
+          zoom: 18
         });
 
 }
