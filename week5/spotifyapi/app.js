@@ -25,6 +25,7 @@ function displayResults (artists) {
 		var html = `
 		<li>
 			<h2>${artist.name}</h2>
+			<img src=${artist.images[2].url}>
 		</li>
 		`
 		$(".js-artist-list").append(html);
