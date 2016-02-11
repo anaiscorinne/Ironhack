@@ -6,9 +6,19 @@ PokemonApp.Pokemon = function (pokemonUri) {
 	this.id = PokemonApp.Pokemon.idFromUri(pokemonUri);
 };
 
+PokemonApp.Pokemon.idFromUri = function (pokemonUri) {
+	var uriSegments = pokemonUri.split("/");
+	var secondLast = uriSegments.length - 2;
+	return uriSegments[secondLast];
+};
+
+
+
 PokemonApp.Pokemon.prototype.render = function () {
 	console.log("Rendering pokemon: #" + this.id);
+	// 
 	var self = this;
+
 	$.ajax({
 		url:`/api/pokemon/${this.id}`,
 		success: function (response) {
@@ -17,6 +27,12 @@ PokemonApp.Pokemon.prototype.render = function () {
 			console.log("Pokemon info:");
 			console.log(self.info);
 
+			var imageURI = self.info.sprites[0].resource_uri;
+			var descriptionIndex = self.info.descriptions.length - 1
+			var descriptionArrayPosition = self.info.descriptions[descriptionIndex]
+			var descriptionURI = descriptionArrayPosition.resource_uri;
+			console.log(descriptionArrayPosition)
+			
 
 			$(".js-pkmn-name").text(self.info.name);
 			$(".js-pkmn-number").text(self.info.pkdx_id);
@@ -37,6 +53,8 @@ PokemonApp.Pokemon.prototype.render = function () {
 					`
 				$(".js-pkmn-types").append(html)
 			});
+			getPokemonImage(imageURI);
+			getPokemonDescription(descriptionURI);
 
 			$(".js-pokemon-modal").modal("show");
 
@@ -47,11 +65,45 @@ PokemonApp.Pokemon.prototype.render = function () {
 	});
 };
 
-PokemonApp.Pokemon.idFromUri = function (pokemonUri) {
-	var uriSegments = pokemonUri.split("/");
-	var secondLast = uriSegments.length - 2;
-	return uriSegments[secondLast];
-};
+function getPokemonImage (imageURI) {
+	$.ajax({
+		url: `http://pokeapi.co/${imageURI}`,
+		success: function (response) {
+			console.log(response);
+			displayImage(response);
+		},
+		error: function () {
+			alert("Couldn't get the details.")
+		}
+	});
+}
+
+function displayImage (response) {
+	var imageURL = "http://pokeapi.co/" + response.image
+	var html = `
+		<img src="http://pokeapi.co${response.image}">
+	`
+	$(".js-pkmn-image").html(html)
+}
+
+function getPokemonDescription (descriptionURI) {
+	$.ajax({
+		url: `http://pokeapi.co/${descriptionURI}`,
+		success: function (response) {
+			console.log(response);
+			displayDescription(response);
+			// displayImage(response);
+		},
+		error: function () {
+			alert("Couldn't get the details.")
+		}
+	});
+}
+
+function displayDescription (response) {
+	$(".js-pkmn-description").text(response.description)
+}
+
 
 // =============================================================
 
