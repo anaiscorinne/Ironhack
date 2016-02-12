@@ -3,7 +3,23 @@ $(document).on("ready", function () {
 		event.preventDefault();
 		searchTrack();
 	});
+	$(".btn-play").on("click", function(event){
+		console.log("hey girlllll")
+		event.preventDefault();
+		if ($(event.currentTarget).hasClass('playing')) {
+			$(event.currentTarget).removeClass('playing');
+			$(event.currentTarget).addClass('disabled');
+			$(".js-audio").trigger('pause');
+		}
+		else {
+			$(event.currentTarget).removeClass('disabled');
+			$(event.currentTarget).addClass('playing');
+			$(".js-audio").trigger('play');
+		}
+	});
 });
+
+
 
 
 
