@@ -43,6 +43,7 @@ PokemonApp.Pokemon.prototype.render = function () {
 			$(".js-pkmn-defense").text(self.info.defense);
 			$(".js-pkmn-sp-att").text(self.info.sp_attack);
 			$(".js-pkmn-sp-def").text(self.info.sp_defense);
+			$(".js-ev-button").data("pkmn-id", self.infor.pkdx_id);
 
 			$(".js-pkmn-types").empty();
 
@@ -79,7 +80,7 @@ function getPokemonImage (imageURI) {
 }
 
 function displayImage (response) {
-	var imageURL = "http://pokeapi.co/" + response.image
+	// var imageURL = "http://pokeapi.co/" + response.image
 	var html = `
 		<img src="http://pokeapi.co${response.image}">
 	`

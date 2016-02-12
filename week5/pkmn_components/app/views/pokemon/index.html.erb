@@ -26,22 +26,25 @@
         <h3 class="modal-title">
           <span class="js-pkmn-name"></span>
           <small class="js-pkmn-number"></small>
+          <dd class="js-pkmn-image"></dd><br>
         </h3>
       </div><!-- .modal-header -->
 
       <div class="modal-body">
         <dl class="dl-horizontal">
+          
           <dt></dt>
-          <dd class="js-pkmn-image"></dd>
-
+          <dd></dd>
+          <dt>Description:</dt>
+          <dd class="js-pkmn-description"></dd>
           <dt>Height:</dt>
           <dd class="js-pkmn-height">23</dd>
 
           <dt>Weight</dt>
           <dd class="js-pkmn-weight">888</dd>
           <br>
-          <dt>STATS</dt>
-          <dd></dd>
+        </dl>
+        <dl class="dl-horizontal">
           <dt>Hit points:</dt>
           <dd class="js-pkmn-hp">888</dd>
           <dt>Attack:</dt>
@@ -58,8 +61,35 @@
            <ul class="js-pkmn-types">
            </ul>
           </dd>
-          <dt>Description:</dt>
-          <dd class="js-pkmn-description"></dd>
+        </dl>
+      </div><!-- .modal-body -->
+      <div class="modal-footer">
+        <button class="js-ev-button">See Evolutions</button><br><br>
+      </div>
+    </div><!-- .modal-content -->
+  </div><!-- .modal-dialog -->
+</div><!-- .modal -->
+
+
+<!-- EVOLUTION MODAL -->
+
+<div class="modal fade js-ev-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+
+        <h3 class="modal-title js-ev-title">
+        </h3>
+      </div><!-- .modal-header -->
+
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+          <h3 class="js-ev-loading">loading evolutions...</h3>
+          <ul class="js-ev-list"></ul>
         </dl>
       </div><!-- .modal-body -->
 
