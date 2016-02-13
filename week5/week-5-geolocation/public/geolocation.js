@@ -12,10 +12,7 @@ function onLocation(position){
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
-
   createMap(myPosition);
-  setupAutocomplete();
-  createMarker();
 }
 
 function onError(err){
@@ -28,14 +25,35 @@ function createMap(position){
     zoom: 17
     };
   map = new google.maps.Map($('#map')[0], mapOptions);
-  createMarker(position);
+
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(position.lat, position.lng);
+
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+            var address = results[0].formatted_address;
+    }
+    createMarker(position, address);
+  });
+
+  setupAutoComplete();
+  // var positions = JSON.parse(window.localStorage.getItem("addedLocationMarkers"));
+  // loadMarkers(positions);
 }
 
-function createMarker(position) {
+function createMarker(position, address) {
   var marker = new google.maps.Marker({
    position: position,
-   map: map
+   map: map,
  });
+ 
+ var infowindow = new google.maps.InfoWindow({
+    content: `<p>Address: ${address}</p>`
+  });
+
+  marker.addListener("click", function() {
+    infowindow.open(map, marker);
+  })
 }
 
 function setupAutocomplete(){
