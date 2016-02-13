@@ -36,15 +36,15 @@ function createMap(position){
     createMarker(position, address);
   });
 
-  setupAutoComplete();
-  // var positions = JSON.parse(window.localStorage.getItem("addedLocationMarkers"));
-  // loadMarkers(positions);
+  setupAutocomplete();
+  var positions = JSON.parse(window.localStorage.getItem("addedLocationMarkers"));
+  loadMarkers(positions);
 }
 
 function createMarker(position, address) {
   var marker = new google.maps.Marker({
    position: position,
-   map: map,
+   map: map
  });
  
  var infowindow = new google.maps.InfoWindow({
@@ -54,6 +54,20 @@ function createMarker(position, address) {
   marker.addListener("click", function() {
     infowindow.open(map, marker);
   })
+
+  if (localStorage.getItem('addedLocationMarkers')) {
+    var jsonMarkers = JSON.parse(window.localStorage.getItem('addedLocationMarkers'));
+    jsonMarkers.push(position);
+    var newStringMarkers = JSON.stringify(jsonMarkers);
+    window.localStorage.setItem('addedLocationMarkers', newStringMarkers);
+  }
+  else {
+    var markers = [];
+    markers.push(position);
+    var stringMarkers = JSON.stringify(markers);
+    window.localStorage.setItem('addedLocationMarkers', stringMarkers)
+  }
+ 
 }
 
 function setupAutocomplete(){
@@ -61,8 +75,10 @@ function setupAutocomplete(){
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.addListener('place_changed', function(){
     var place = autocomplete.getPlace();
+    var address = place.formatted_address;
     if (place.geometry.location) {
       // createMarker();
+      createMarker(place.geometry.location, address);
       map.setCenter(place.geometry.location);
       map.setZoom(17);
     } else {
@@ -71,7 +87,36 @@ function setupAutocomplete(){
   });
 }
 
+function loadMarkers(markers) {
+  var uniqueMarkers = [];
+  $.each(markers, function(i, el){
+      if($.inArray(el, uniqueMarkers) === -1) uniqueMarkers.push(el);
+  });
 
+  uniqueMarkers.forEach(function(position) {
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map
+    });
+
+    var geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(position.lat, position.lng);
+
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+              //we'll do cool crap here
+              var address = results[0].formatted_address;
+      }
+      var infowindow = new google.maps.InfoWindow({
+        content: `<p>Address: ${address}</p>`
+      });
+
+      marker.addListener("click", function() {
+        infowindow.open(map, marker);
+      })
+    });
+  })
+}
 
 
 
