@@ -4,7 +4,6 @@ $(document).on("ready", function () {
 		searchTrack();
 	});
 	$(".btn-play").on("click", function(event){
-		console.log("hey girlllll")
 		event.preventDefault();
 		if ($(event.currentTarget).hasClass('playing')) {
 			$(event.currentTarget).removeClass('playing');
@@ -17,6 +16,7 @@ $(document).on("ready", function () {
 			$(".js-audio").trigger('play');
 		}
 	});
+	$('.js-audio').on('timeupdate', printTime);
 });
 
 
@@ -49,3 +49,18 @@ $(document).on("ready", function () {
 		},
 	});
 }
+
+function printTime () {
+  var current = $('.js-audio').prop('currentTime');
+  $("progress").prop("value", current);
+}
+
+
+
+
+
+
+
+
+
+
