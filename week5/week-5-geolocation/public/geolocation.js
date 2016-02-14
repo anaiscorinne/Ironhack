@@ -43,9 +43,13 @@ function createMap(position){
 
 function createMarker(position, address) {
   var marker = new google.maps.Marker({
-   position: position,
-   map: map
- });
+      position: position,
+      map: map
+    })
+  // if (address ==! 'undefined') {
+  //   // marker.setVisible(false);
+  // }
+
  
  var infowindow = new google.maps.InfoWindow({
     content: `<p>Address: ${address}</p>`
