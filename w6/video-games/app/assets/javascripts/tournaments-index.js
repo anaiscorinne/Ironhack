@@ -24,4 +24,23 @@ function tournamentsIndex () {
 
     $('[data-hook~=tourney-add]').removeClass('hidden')
   }
+
 }
+  function deleteTournament (event) {
+    console.log("Hello")
+    var tournamentId = $(this).attr("value");
+    var $button = $(this);
+    event.preventDefault;
+    $.ajax({
+      url: '/api/tournaments',
+      type: 'DELETE',
+      data: {id: tournamentId},
+      success: function () {
+        $button.parent().remove()
+      }
+    });
+
+  }
+
+
+
