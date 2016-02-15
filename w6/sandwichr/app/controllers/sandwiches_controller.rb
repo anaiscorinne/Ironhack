@@ -1,5 +1,5 @@
 class SandwichesController < ApplicationController
-	
+
 	def index
 		sandwiches = Sandwich.all
 		render json: sandwiches
@@ -12,12 +12,14 @@ class SandwichesController < ApplicationController
 
 	def show
 		sandwich = Sandwich.find_by(id: params[:id])
+
 		unless sandwich
 			render json: {error: "sandwich not found"},
 			status: 404
 			return
 		end
-		render json: sandwich
+		# render json: sandwich
+		render json: sandwich.to_json({:include => :ingredients})
 	end
 
 	def update
@@ -40,6 +42,16 @@ class SandwichesController < ApplicationController
 		end
 		sandwich.destroy
 		render json: sandwich
+	end
+
+	def add_ingredient
+		sandwich = Sandwich.find_by(id: params[:id])
+		ingredient = Ingredient.find_by(id: params[:sandwich][:ingredient_id])
+		# ingredient = Ingredient.find_by(id: params[:apple])
+
+		sandwich.ingredients.push(ingredient)
+
+		render json: sandwich.to_json({:include => :ingredients})
 	end
 
 	private

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  post "/sandwiches/:id/ingredients/add" => "sandwiches#add_ingredient"
+
   resources :sandwiches, except: [:new, :edits]
   resources :ingredients
   # The priority is based upon order of creation: first created -> highest priority.
