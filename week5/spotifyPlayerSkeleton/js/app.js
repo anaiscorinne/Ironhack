@@ -17,6 +17,11 @@ $(document).on("ready", function () {
 		}
 	});
 	$('.js-audio').on('timeupdate', printTime);
+
+	$(".js-artist").on("click", function () {
+		var id = $(this).data("id");
+		showArtist(id);
+	});
 });
 
 
@@ -33,7 +38,7 @@ $(document).on("ready", function () {
 			console.log(response)
 			var firstTrack = response.tracks.items[0]
 			var firstTrackTitle = firstTrack.name
-			var firstTrackArtistName = firstTrack.artists[0].name 
+			var firstTrackArtistName = firstTrack.artists[0].name
 			var firstTrackAlbum = firstTrack.album.images[1].url
 			var firstTrackUrl = response.tracks.items[0].preview_url
 			
@@ -41,6 +46,9 @@ $(document).on("ready", function () {
 			$(".js-artist").text(firstTrackArtistName);
 			$(".js-album-cover").prop("src", firstTrackAlbum);
 			$(".js-audio").prop("src", firstTrackUrl);
+
+			var firstTrackArtistId = firstTrack.artists[0].id
+			$(".js-artist").data("id", firstTrackArtistId);
 
 		
 		},
@@ -55,6 +63,29 @@ function printTime () {
   $("progress").prop("value", current);
 }
 
+function showArtist (id) {
+	$.ajax({
+		url: `https://api.spotify.com/v1/artists/${id}`,
+		success: function (response) {
+			console.log(response);
+			$('.js-artist-details').empty();
+			$('.js-modal').modal("show");
+			$('.js-artist-name').text(response.name);
+			var artistImageUrl = response.images[1].url;
+			var artistPopularity = response.popularity;
+			var artistFollowers = response.followers.total;
+			var html = `
+				<li>Popularity: ${artistPopularity}% | Followers: ${artistFollowers}</li>
+				<br>
+				<li><img src="${artistImageUrl}" class="img-responsive"></img></li>
+			`
+			$('.js-artist-details').append(html);
+		},
+		error: function () {
+			alert("showArtist failed");
+		},
+	});
+}
 
 
 

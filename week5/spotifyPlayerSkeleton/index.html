@@ -23,7 +23,7 @@
 
 		<div class="metadata">
 		  <p class="title js-title-name">Hunger of The Pine</p>
-		  <p class="author js-artist">alt-J</p>
+		  <a href="#" class="author js-artist" data-id="">alt-J</a>
 
 		  <div class="seekbar js-progress-bar">
 		    <progress value="" max="30"></progress>
@@ -36,6 +36,29 @@
 
 		<audio src="https://p.scdn.co/mp3-preview/8e9c5ffdc38e91659bfe8b6bd44650dfc25a3d31" class="js-audio"></audio>
 	</div>
+
+
+	<div class="modal fade js-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <!-- Close button -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+
+        <h2 class="js-artist-name"></h2>
+      </div>
+
+      <div class="modal-body">
+        <ul  class="js-artist-details">
+        </ul>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 </body>
 </html>

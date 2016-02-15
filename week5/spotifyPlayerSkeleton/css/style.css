@@ -153,3 +153,24 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background-color: #45a800;
 }
+
+ul {
+ list-style-type: none;
+ /*margin: 10px;*/
+ }
+
+li {
+  text-align: center;
+}
+
+.js-artist-name {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
