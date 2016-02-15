@@ -47,7 +47,8 @@ class SandwichesController < ApplicationController
 	def add_ingredient
 		sandwich = Sandwich.find_by(id: params[:id])
 		ingredient = Ingredient.find_by(id: params[:sandwich][:ingredient_id])
-		# ingredient = Ingredient.find_by(id: params[:apple])
+		sandwich.total_calories += ingredient.calories
+		sandwich.save
 
 		sandwich.ingredients.push(ingredient)
 
