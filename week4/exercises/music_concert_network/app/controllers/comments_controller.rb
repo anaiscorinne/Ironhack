@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+	before_action :authenticate_user!, only: [ "new", "create" ]
+	
 	def index
 		@concert = Concert.find_by(id: params[:concert_id])
 		@comments = @concert.comments.all

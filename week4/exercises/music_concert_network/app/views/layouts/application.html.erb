@@ -12,6 +12,12 @@
 		<ul class="nav nav-tabs navbar-fixed-top">
 			<li role="presentation"><a href="/">Home</a></li>
 			<li role="presentation"><a href="#">Concert List</a></li>
+			<% if current_user.nil? %>
+				<li role="presentation"><a href="/users/sign_in">Log In</a></li>
+				<li role="presentation"><a href="/users/sign_up">Sign Up</a></li>
+			<% else %>
+				<li role="presentation"><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
+			<% end %>
 		</ul>
 	</header>
 

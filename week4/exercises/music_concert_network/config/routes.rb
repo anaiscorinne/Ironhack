@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
 get "/" => "concerts#index"
 
 resources :concerts, only: [:show, :index, :new] do

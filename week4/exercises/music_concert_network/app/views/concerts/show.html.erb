@@ -13,7 +13,11 @@
 				<div class="col-sm-12">
 					<%= render 'comments/index' %>
 					<br>
-					<%= render 'comments/new' %>
+					<% if current_user.nil? %>
+						<br>
+					<% else %>
+						<%= render 'comments/new' %>
+					<% end %>
 				</div>
 			</div>
 		</div>
