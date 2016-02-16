@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
-	
+	  protect_from_forgery with: :null_session
+
 	def index
 		ingredients = Ingredient.all
 		render json: ingredients
