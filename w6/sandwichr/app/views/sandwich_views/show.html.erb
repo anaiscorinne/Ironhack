@@ -1,13 +1,24 @@
 <div class="sandwich-page">
-	<h2>The <%=@sandwich.name%> Sandwich</h2>
+	<h2 class="js-sandwich" >The <%=@sandwich.name%> Sandwich</h2>
+
 	<ul>
 		<li>Bread type: <%= @sandwich.bread_type %></li>
 		<br>
-		<li>Ingredients:
+		<li class="js-ingredient-list">Ingredients:
 		<% @ingredients.each do |ingredient| %>
 			<%= ingredient.name %> 
 		<% end %></li>
 		<br>
-		<li>Total Calories: <%=@sandwich.total_calories %></li>
+		<li class="js-total-calories">Total Calories: <%=@sandwich.total_calories %></li>
+	</ul>
+</div>
+<br><br>
+
+<div class="available-ingredients">
+	<h2>Available Ingredients:</h2>
+	<ul>
+		<% @all_ingredients.each do |ingredient| %>
+			<button name="button" type="submit" data-id="<%= ingredient.id %>" data-id-sandwich="<%= @sandwich.id %>" class="js-ingredient-button"><%= ingredient.name %>: <%= ingredient.calories %> calories</button>
+		<% end %>
 	</ul>
 </div>
