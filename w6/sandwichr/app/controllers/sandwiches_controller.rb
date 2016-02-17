@@ -51,7 +51,7 @@ class SandwichesController < ApplicationController
 		
 		sandwich.ingredients.push(ingredient)
 
-		render json: sandwich.to_json({:include => :ingredients})
+		render json: { :sandwich => sandwich, :ingredient => ingredient }
 	end
 
 	private

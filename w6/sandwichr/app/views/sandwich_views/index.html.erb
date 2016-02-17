@@ -4,10 +4,10 @@
 	<a href="/users/sign_in">Log In</a><br>
 	<a href="/users/sign_up">Sign Up</a><br>
 <% else %>
-	<h3>List of Sandwiches:</h3>
+	<h3 class="js-sandwich-index">List of Sandwiches:</h3>
 		<ul>
 		<% @sandwiches.each do |sandwich| %>
-		<a href="/sandwiches/<%=sandwich.id%>"><%=sandwich.name%></a>
+		<a href="/sandwiches/<%=sandwich.id%>"><%=sandwich.name%></a><br><br>
 		<%end%>
 		</ul><br>
 	<a href="/users/sign_out" data-method="DELETE">Log Out</a>
